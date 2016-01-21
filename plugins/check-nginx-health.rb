@@ -41,10 +41,10 @@ class CheckNginxHealth < Sensu::Plugin::Check::CLI
       puts "Waiting: #{waiting}"
 
       if waiting >= config[:critical]
-        return critical("Nginx is very busy: Templar")
+        return critical("Nginx is very busy. Make sure load is not too much (add servers if needed)")
       end
       if waiting >= config[:warn]
-        return warn("Nginx is slightly busy: Templar")
+        return warn("Nginx is slightly busy right now")
       end
 
       return ok
